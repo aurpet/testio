@@ -34,7 +34,7 @@ public abstract class AppActivity extends AppCompatActivity {
         Toast.makeText(context, m, Toast.LENGTH_LONG).show();
     }
 
-    protected void showProgressDialog (Context context, String message){
+    protected  static void showProgressDialog (Context context, String message){
         progressDialog = new ProgressDialog(context);
         if (progressDialog.isShowing()){
             progressDialog.cancel();

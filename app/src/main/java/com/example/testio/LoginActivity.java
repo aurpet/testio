@@ -1,6 +1,7 @@
 package com.example.testio;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -46,7 +47,7 @@ public class LoginActivity extends AppActivity {
     @OnClick(R.id.btn_login)
     public void clickBtnLogin() {
         if (isNotEmptyEditText(edtUserName, edtPassword)) {
-            authorization(edtUserName.getText().toString(), edtPassword.getText().toString());
+            authorization(userName, password);
         }
     }
 
@@ -66,6 +67,7 @@ public class LoginActivity extends AppActivity {
         return true;
     }
 
+    @SuppressLint("StaticFieldLeak")
     private void authorization (String userName, String password){
         new AsyncTask<String, Void, String>(){
 
