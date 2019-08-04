@@ -15,6 +15,12 @@ public class DataAdapter extends ArrayAdapter<DataObject> {
     private ArrayList<DataObject> data;
     private int lastPosition = -1;
 
+    OnClickI onClickI;
+
+    public void setDataOnclick (OnClickI onclick){
+        this.onClickI = onclick;
+    }
+
     public DataAdapter (Context c, ArrayList<DataObject> listData){
         super(c, R.layout.custom_list_view, listData);
     }
@@ -49,6 +55,19 @@ public class DataAdapter extends ArrayAdapter<DataObject> {
 
         viewHolder.tvCountryName.setText(countryName);
         viewHolder.tvDistance.setText(distance);
+
+        viewHolder.tvCountryName.setOnClickListener(v -> {
+            if (onClickI != null){
+                onClickI.onNameClick(getPosition(data), data);
+            }
+        });
+
+        viewHolder.tvDistance.setOnClickListener(v -> {
+            if (onClickI != null){
+                onClickI.onDistanceClick(getPosition(data), data);
+            }
+        });
+
         return convertView;
     }
 }
