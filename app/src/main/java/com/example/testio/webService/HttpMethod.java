@@ -1,4 +1,6 @@
 package com.example.testio.webService;
 
-public class HttpGet {
+public enum HttpMethod {
+    POST, GET
+
 }

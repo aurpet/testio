@@ -3,8 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#20253B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="white">#F1F8E9</color>
+    <color name="white">#F5F7F7</color>
     <color name="colorLoginBtn">#9ED433</color>
+    <color name="actionBarColor">#EFEFEF</color>
+    <color name="black">#000</color>
+
 
 
 

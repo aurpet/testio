@@ -1,10 +1,21 @@
 <resources>
     <string name="app_name">Testio</string>
 
-
+    <!--Activity login -->
     <string name="hint_user_name">Username</string>
     <string name="hint_password">Password</string>
     <string name="login">Log In</string>
+    <string name="empty_both_login_fields">Username and password is empty!</string>
+    <string name="empty_username">Username is empty!</string>
+    <string name="empty_pass">Password is empty!</string>
+    <string name="authorization_error">Authorization unsuccessful</string>
+    <string name="dialog_connecting">Connecting..</string>
+
+
+
+    <!--Progress dialog messages-->
+    <string name="progress_message_fetching">Fetching the list... </string>
+    <string name="progress_message_authorization">Connecting</string>
 
 
 </resources>
