@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 
 /**
@@ -35,7 +36,7 @@ public abstract class AppActivity extends AppCompatActivity {
         Toast.makeText(context, m, Toast.LENGTH_LONG).show();
     }
 
-    protected  static void showProgressDialog (Context context, String message){
+    protected static void showProgressDialog (Context context, String message){
         progressDialog = new ProgressDialog(context);
         if (progressDialog.isShowing()){
             progressDialog.cancel();
@@ -44,20 +45,14 @@ public abstract class AppActivity extends AppCompatActivity {
             progressDialog.setCancelable(false);
             progressDialog.show();
         }
-
     }
 
-    protected static void setCustomActionbar(ActionBar mActionBar, Context context) {
-        LayoutInflater mInflater;
-        View mCustomView;
-        if (mActionBar != null) {
-            mActionBar.setDisplayHomeAsUpEnabled(true);
-
-            mInflater = LayoutInflater.from(context);
-            mCustomView = mInflater.inflate(R.layout.custom_action_bar, null);
-
-            mActionBar.setCustomView(mCustomView);
-            mActionBar.setDisplayShowCustomEnabled(true);
+    protected void setCustomToolbar(boolean isTitle, int toolbarId, String title){
+        Toolbar toolbar = findViewById(toolbarId);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(isTitle);
+        if (isTitle && title != null){
+            getSupportActionBar().setTitle(title);
         }
     }
 

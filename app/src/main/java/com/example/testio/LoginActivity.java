@@ -38,10 +38,12 @@ public class LoginActivity extends AppActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+    }
 
-        //hardcoded values for easy testing
-        edtUserName.setText("tesonet");
-        edtPassword.setText("partyanimal");
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
     }
 
     @OnClick(R.id.btn_login)
@@ -110,7 +112,6 @@ public class LoginActivity extends AppActivity {
                 return token;
             }
         }.execute(userName, password);
-
     }
 
 }
