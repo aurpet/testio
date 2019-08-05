@@ -1,6 +1,7 @@
 package com.example.testio;
 
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -71,14 +72,25 @@ public class ShowResultActivity extends AppActivity {
         OnClickI onClickI = new OnClickI() {
             @Override
             public void onNameClick(int position, DataObject dataObject) {
-                showToastMessage(ShowResultActivity.this, "Server name is: " + dataObject.getCountryName());
+                showToastMessage(ShowResultActivity.this,
+                        getString(R.string.message_server_name) + dataObject.getCountryName());
             }
 
             @Override
             public void onDistanceClick(int position, DataObject dataObject) {
-                // remove item
-                dataAdapter.remove(dataAdapter.getItem(position));
-                showToastMessage(ShowResultActivity.this, "Item successfully deleted");
+                // AlertDialog of remove item
+                AlertDialog.Builder builder = new AlertDialog.Builder(ShowResultActivity.this);
+                builder.setCancelable(false);
+                builder.setTitle(getString(R.string.title_delete));
+                builder.setMessage(getString(R.string.message_delete));
+                builder.setPositiveButton(getString(R.string.positive_btn), (dialogInterface, i) -> {
+                    dataAdapter.remove(dataAdapter.getItem(position));
+                    showToastMessage(ShowResultActivity.this, getString(R.string.message_success));
+                });
+                builder.setNegativeButton(getString(R.string.negative_btn), (dialogInterface, i) -> {
+                    dialogInterface.dismiss();
+                });
+                builder.create().show();
             }
         };
 

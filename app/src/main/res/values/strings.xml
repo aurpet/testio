@@ -19,8 +19,13 @@
     <string name="server">server</string>
     <string name="distance">distance</string>
 
-
-
+    <!--AlertDialog-->
+    <string name="negative_btn">Cancel</string>
+    <string name="positive_btn">Yes</string>
+    <string name="title_delete">Item would be deleted</string>
+    <string name="message_delete">Are you sure, do you want delete?</string>
+    <string name="message_success">Item successfully deleted</string>
+    <string name="message_server_name">Server name is: </string>
 
 
 </resources>
