@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.example.testio.db.DbClient;
 import com.example.testio.webService.HttpMethod;
 import com.example.testio.webService.HttpRequest;
 
@@ -12,13 +13,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static com.example.testio.webService.HttpRequest.URL_GET_DATA_LIST;
 
 
 public class LoaderActivity extends AppActivity {
     public static JSONArray jsonArray = null;
+    private DbClient dbClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class LoaderActivity extends AppActivity {
 
                 fetchData(token);
             }
+            // create db
+            dbClient = new DbClient(getApplicationContext());
         }
     }
 

@@ -1,17 +1,30 @@
 package com.example.testio.db;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
-public class Servers implements Serializable {
+public class Server implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
     private String name;
     private String distance;
+
+    @ColumnInfo (name = "created_at")
+    private String createdAt;
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
 
     public int getId() {
         return id;
