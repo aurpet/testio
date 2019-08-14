@@ -45,12 +45,7 @@ public class ShowResultActivity extends AppActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.log_out:
-                if (!dataAdapter.isEmpty()){
-                    dataAdapter.clear();
-                }
-                finish();
-                Intent intent = new Intent(ShowResultActivity.this, LoginActivity.class);
-                startActivity(intent);
+                finishAffinity();
                 break;
         }
         return true;
