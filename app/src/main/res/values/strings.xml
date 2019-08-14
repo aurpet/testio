@@ -13,7 +13,6 @@
 
     <!--Progress dialog messages-->
     <string name="progress_message_fetching">Fetching the list... </string>
-    <string name="progress_message_authorization">Connecting</string>
 
     <!--Activity show results -->
     <string name="server">server</string>
